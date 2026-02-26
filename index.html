@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新進考核報告 — Satita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500&family=DM+Serif+Display:ital@0;1&family=Space+Mono&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --black: #111111;
+    --grey-dark: #444444;
+    --grey-mid: #888888;
+    --grey-light: #cccccc;
+    --grey-bg: #f5f4f1;
+    --white: #ffffff;
+    --line: 1px solid #d8d8d4;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans TC', sans-serif; background: var(--white); color: var(--black); font-size: 15px; line-height: 1.75; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    background: rgba(255,255,255,0.93); backdrop-filter: blur(8px);
+    border-bottom: var(--line); display: flex; align-items: center;
+    justify-content: space-between; padding: 0 48px; height: 52px;
+  }
+  nav .brand { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
+  nav .nav-right { display: flex; gap: 32px; font-size: 11px; letter-spacing: 0.08em; color: var(--grey-mid); }
+  nav .nav-right a { color: inherit; text-decoration: none; transition: color 0.2s; }
+  nav .nav-right a:hover { color: var(--black); }
+
+  /* ── TICKER ── */
+  .ticker { margin-top: 52px; background: var(--black); color: var(--white); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.15em; padding: 8px 0; white-space: nowrap; overflow: hidden; }
+  .ticker-inner { display: inline-block; animation: ticker 30s linear infinite; }
+  @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  /* ── HERO ── */
+  .hero { padding: 80px 48px 72px; border-bottom: var(--line); display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; }
+  .hero-left .eyebrow { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey-mid); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+  .hero-left .eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--grey-mid); }
+  .hero-left h1 { font-family: 'Noto Serif TC', serif; font-size: clamp(40px, 5vw, 64px); font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; }
+  .hero-left h1 em { font-style: italic; font-family: 'DM Serif Display', serif; color: var(--grey-mid); }
+  .hero-right { display: flex; flex-direction: column; gap: 20px; align-self: end; }
+  .hero-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; border-top: var(--line); padding-top: 20px; }
+  .meta-item .label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--grey-mid); margin-bottom: 4px; }
+  .meta-item .value { font-size: 13px; font-weight: 500; }
+
+  /* ── SECTION LABEL ── */
+  .section-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--grey-mid); display: flex; align-items: center; gap: 12px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--grey-light); }
+
+  /* ── SECTION 1 ── */
+  #section-1 { padding: 72px 48px; border-bottom: var(--line); }
+  .s1-header { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; margin-bottom: 56px; align-items: end; }
+  .s1-num { font-family: 'DM Serif Display', serif; font-size: 120px; line-height: 1; color: var(--grey-bg); user-select: none; }
+  .s1-title-block h2 { font-family: 'Noto Serif TC', serif; font-size: 28px; font-weight: 600; margin-bottom: 8px; }
+  .s1-title-block .subtitle { font-size: 13px; color: var(--grey-mid); font-weight: 300; }
+  .cards-3col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--grey-light); border: var(--line); }
+  .card { background: var(--white); padding: 32px 28px; }
+  .card .card-num { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--grey-mid); margin-bottom: 16px; letter-spacing: 0.1em; }
+  .card h3 { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 600; margin-bottom: 16px; line-height: 1.4; }
+  .card p { font-size: 13px; color: var(--grey-dark); line-height: 1.8; font-weight: 300; }
+
+  /* ── WORKS ── */
+  #works { padding: 72px 48px; border-bottom: var(--line); background: var(--grey-bg); }
+  .works-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 40px; }
+  .works-header h2 { font-family: 'Noto Serif TC', serif; font-size: 24px; font-weight: 600; }
+  .works-header .works-count { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--grey-mid); letter-spacing: 0.1em; }
+  .works-category { margin-bottom: 48px; }
+  .works-category .cat-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey-mid); padding-bottom: 12px; border-bottom: var(--line); margin-bottom: 20px; }
+
+  /* ── UNIFORM GRID — 4 columns ── */
+  .works-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .inline-works-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  /* ── SQUARE SLOT ── */
+  .img-slot {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background: #e8e7e3;
+    cursor: pointer;
+    overflow: hidden;
+    transition: background 0.18s;
+  }
+  .img-slot:hover { background: #dddbd6; }
+
+  /* empty state */
+  .slot-empty {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px;
+    pointer-events: none;
+    transition: opacity 0.15s;
+  }
+  .slot-empty .plus {
+    width: 34px; height: 34px; border: 1.5px solid var(--grey-mid); border-radius: 2px;
+    display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--grey-mid);
+  }
+  .slot-empty .slot-name {
+    font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.1em;
+    color: var(--grey-mid); text-align: center; padding: 0 8px; line-height: 1.5;
+  }
+  .img-slot.has-image .slot-empty { opacity: 0; pointer-events: none; }
+
+  /* hover overlay */
+  .slot-hover {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+    background: rgba(0,0,0,0.6);
+    opacity: 0; transition: opacity 0.18s;
+  }
+  .img-slot:hover .slot-hover { opacity: 1; }
+
+  .action-btn {
+    font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #fff;
+    border: 1px solid rgba(255,255,255,0.55); padding: 5px 12px;
+    background: transparent; cursor: pointer; transition: background 0.15s;
+    pointer-events: auto;
+  }
+  .action-btn:hover { background: rgba(255,255,255,0.18); }
+
+  /* hide zoom btn when no image */
+  .img-slot:not(.has-image) .btn-zoom { display: none; }
+
+  /* thumbnail */
+  .img-slot img.thumb {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .img-slot input[type="file"] { display: none; }
+
+  /* ── LIGHTBOX ── */
+  #lightbox {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: rgba(10,10,10,0.9);
+    align-items: center; justify-content: center;
+    cursor: zoom-out;
+  }
+  #lightbox.open { display: flex; }
+  #lightbox img {
+    max-width: 88vw; max-height: 88vh; object-fit: contain;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+    cursor: default;
+    animation: lb-in 0.22s ease;
+  }
+  @keyframes lb-in { from { opacity:0; transform: scale(0.96); } to { opacity:1; transform: scale(1); } }
+  #lightbox .lb-close {
+    position: absolute; top: 20px; right: 28px;
+    font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.5); cursor: pointer; transition: color 0.15s;
+    user-select: none;
+  }
+  #lightbox .lb-close:hover { color: #fff; }
+  #lightbox .lb-label {
+    position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+    font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ── SECTION 2 ── */
+  #section-2 { padding: 72px 48px; border-bottom: var(--line); }
+  .s2-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .big-quote { font-family: 'Noto Serif TC', serif; font-size: 26px; font-weight: 600; line-height: 1.5; margin-bottom: 24px; }
+  .big-quote span { border-bottom: 2px solid var(--black); padding-bottom: 2px; }
+  .s2-left p { font-size: 13px; color: var(--grey-dark); line-height: 1.9; font-weight: 300; margin-bottom: 16px; }
+  .goal-item { padding: 24px 0; border-bottom: var(--line); display: grid; grid-template-columns: 32px 1fr; gap: 16px; align-items: start; }
+  .goal-item:first-child { border-top: var(--line); }
+  .goal-marker { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--grey-mid); padding-top: 3px; }
+  .goal-item h4 { font-family: 'Noto Serif TC', serif; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .goal-item p { font-size: 12px; color: var(--grey-dark); line-height: 1.8; font-weight: 300; }
+
+  /* ── SECTION 3 ── */
+  #section-3 { padding: 72px 48px; border-bottom: var(--line); }
+  .s3-layout { display: grid; grid-template-columns: 5fr 4fr; gap: 64px; align-items: start; }
+  .s3-left h2 { font-family: 'Noto Serif TC', serif; font-size: 24px; font-weight: 600; margin-bottom: 32px; }
+  .pain-item { padding: 20px 0; border-bottom: var(--line); }
+  .pain-item:first-of-type { border-top: var(--line); }
+  .pain-tag { display: inline-block; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: var(--grey-mid); border: 1px solid var(--grey-light); padding: 3px 8px; margin-bottom: 10px; }
+  .pain-item h4 { font-size: 14px; font-weight: 500; margin-bottom: 8px; font-family: 'Noto Serif TC', serif; }
+  .pain-item p { font-size: 12px; color: var(--grey-dark); line-height: 1.8; font-weight: 300; }
+  .s3-right { background: var(--black); color: var(--white); padding: 36px 32px; }
+  .proposal-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+  .s3-right h3 { font-family: 'Noto Serif TC', serif; font-size: 20px; font-weight: 600; margin-bottom: 20px; line-height: 1.5; }
+  .s3-right > p { font-size: 12px; color: rgba(255,255,255,0.7); line-height: 1.9; font-weight: 300; }
+  .proposal-steps { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+  .step { display: flex; gap: 12px; align-items: flex-start; }
+  .step-num { font-family: 'Space Mono', monospace; font-size: 9px; color: rgba(255,255,255,0.35); padding-top: 2px; min-width: 20px; }
+  .step p { font-size: 12px; color: rgba(255,255,255,0.75); line-height: 1.7; font-weight: 300; margin: 0; }
+
+  /* ── ADD SLOT BUTTON ── */
+  .add-slot-btn {
+    aspect-ratio: 1 / 1;
+    border: 1.5px dashed var(--grey-light);
+    background: transparent;
+    cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+    transition: border-color 0.18s, background 0.18s;
+    color: var(--grey-mid);
+  }
+  .add-slot-btn:hover { border-color: var(--grey-mid); background: #f0efeb; }
+  .add-slot-btn .add-icon {
+    width: 30px; height: 30px; border: 1.5px solid currentColor; border-radius: 2px;
+    display: flex; align-items: center; justify-content: center; font-size: 15px;
+  }
+  .add-slot-btn span {
+    font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* ── SECTION 3 renamed ── */
+  .obs-item { padding: 20px 0; border-bottom: var(--line); }
+  .obs-item:first-of-type { border-top: var(--line); }
+  .obs-tag { display: inline-block; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: var(--grey-mid); border: 1px solid var(--grey-light); padding: 3px 8px; margin-bottom: 10px; }
+  .obs-item h4 { font-size: 14px; font-weight: 500; margin-bottom: 8px; font-family: 'Noto Serif TC', serif; }
+  .obs-item p { font-size: 12px; color: var(--grey-dark); line-height: 1.8; font-weight: 300; }
+
+  /* ── FOOTER ── */
+  footer { padding: 56px 48px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; align-items: center; border-top: var(--line); }
+  .footer-sig { font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 600; }
+  .footer-sig span { display: block; font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 400; color: var(--grey-mid); letter-spacing: 0.15em; margin-top: 6px; }
+  .footer-mid { text-align: center; font-size: 11px; color: var(--grey-mid); font-weight: 300; line-height: 1.8; }
+  .footer-right { text-align: right; font-family: 'Space Mono', monospace; font-size: 10px; color: var(--grey-mid); letter-spacing: 0.08em; line-height: 1.9; }
+
+  /* ── FADE IN ── */
+  .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 860px) {
+    nav { padding: 0 20px; }
+    .hero, #section-1, #works, #section-2, #section-3, footer { padding-left: 20px; padding-right: 20px; }
+    .hero { grid-template-columns: 1fr; padding-top: 48px; }
+    .s1-header { grid-template-columns: 1fr; }
+    .s1-num { font-size: 72px; }
+    .cards-3col { grid-template-columns: 1fr; }
+    .s2-layout, .s3-layout { grid-template-columns: 1fr; }
+    .works-grid { grid-template-columns: repeat(2, 1fr); }
+    .inline-works-grid { grid-template-columns: repeat(2, 1fr); }
+    footer { grid-template-columns: 1fr; }
+    .footer-mid, .footer-right { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox(event)">
+  <span class="lb-close" onclick="closeLightbox()">ESC  ╱  關閉</span>
+  <img id="lb-img" src="" alt="">
+  <span class="lb-label" id="lb-label"></span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="brand">鼎新數智 — 設計部</div>
+  <div class="nav-right">
+    <a href="#section-1">個人</a>
+    <a href="#works">作品</a>
+    <a href="#section-2">角色</a>
+    <a href="#section-3">團隊</a>
+  </div>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    &nbsp;&nbsp;&nbsp;新進考核檢視報告 &nbsp;/&nbsp; SATITA &nbsp;/&nbsp; 2026.02.26 &nbsp;/&nbsp; UI DESIGN &nbsp;/&nbsp; 鼎新數智 &nbsp;/&nbsp; 半年製作紀錄 &nbsp;/&nbsp; 活動類 · 網站網頁類 · EDM · 社群廣告 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    新進考核檢視報告 &nbsp;/&nbsp; SATITA &nbsp;/&nbsp; 2026.02.26 &nbsp;/&nbsp; UI DESIGN &nbsp;/&nbsp; 鼎新數智 &nbsp;/&nbsp; 半年製作紀錄 &nbsp;/&nbsp; 活動類 · 網站網頁類 · EDM · 社群廣告 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero fade-in">
+  <div class="hero-left">
+    <div class="eyebrow">新進人員考核報告</div>
+    <h1>五個月的<br>觀察 & 成長紀錄</h1>
+  </div>
+  <div class="hero-right">
+    <p style="font-size:13px;color:var(--grey-dark);font-weight:300;line-height:1.9;">
+      從單打獨鬥到協作溝通，從埋頭苦幹到理解全局——<br>
+      這份報告記錄了我在鼎新數智五個月的觀察、反思與未來方向。
+    </p>
+    <div class="hero-meta">
+      <div class="meta-item"><div class="label">姓名</div><div class="value">Satita</div></div>
+      <div class="meta-item"><div class="label">職稱</div><div class="value">UI 設計師</div></div>
+      <div class="meta-item"><div class="label">入職時間</div><div class="value">2025.09.15</div></div>
+      <div class="meta-item"><div class="label">考核日期</div><div class="value">2026.02.26</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 1 -->
+<section id="section-1">
+  <div class="section-label fade-in" style="margin-bottom:40px;">01 &nbsp; 個人：這五個月的觀察與成長</div>
+  <div class="s1-header">
+    <div class="s1-num">01</div>
+    <div class="s1-title-block fade-in">
+      <h2>從「單幹」到「協作」<br>視角的轉換</h2>
+      <div class="subtitle">Perspective Shift — Solo to Collaboration</div>
+    </div>
+  </div>
+  <div class="cards-3col">
+    <div class="card">
+      <div class="card-num">— 01</div>
+      <h3>從單幹到協作的<br>視角轉換</h3>
+      <p>以前習慣一個人從企劃文案、產圖到檔案管理全都自己來。這五個月最大的收穫是學會「如何與不同職務的人溝通」。不同專長的人看事情的角度完全不同，這讓我在製圖時多了很多以前沒想過的觀察視角，不再只是埋頭苦幹。</p>
+    </div>
+    <div class="card">
+      <div class="card-num">— 02</div>
+      <h3>發現自己的<br>不足之處</h3>
+      <p>以前會自己想文案，但接觸到公司專業的夥伴後，才發現文案的編排與規劃其實大有深意。目前覺得還需要努力的地方，是去理解「為什麼要用這些字眼、為什麼這樣排」，以及用更多元的角度傾聽不同單位的需求。</p>
+    </div>
+    <div class="card">
+      <div class="card-num">— 03</div>
+      <h3>對職場環境的<br>體悟</h3>
+      <p>這是我第一次進入規模較大的公司體制。工作內容上沒什麼大問題，反而是「體制與溝通」超乎預期。專業能力可以靠時間補足，但在大環境中人與人的溝通、氣氛的拿捏，才是目前最需要學習的生存課題。</p>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section id="works">
+  <div class="works-header fade-in">
+    <h2>作品展示 — 半年製作紀錄</h2>
+    <div class="works-count">PORTFOLIO / 2025—2026</div>
+  </div>
+
+  <div class="works-category fade-in">
+    <div class="cat-label">01 — 廣告 · 活動類</div>
+    <div class="works-grid" id="grid-01">
+      <div class="img-slot" data-label="廣告主視覺 A"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">廣告主視覺 A</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
+      <div class="img-slot" data-label="廣告主視覺 B"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">廣告主視覺 B</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
+      <div class="img-slot" data-label="廣告素材 A"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">廣告素材 A</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
+      <div class="img-slot" data-label="廣告素材 B"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">廣告素材 B</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
+    </div>
+  </div>
+
+  <div class="works-category fade-in">
+    <div class="cat-label">02 — EDM · 電子報</div>
+    <div class="works-grid" id="grid-02">
+      <div class="img-slot" data-label="EDM A"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">EDM A</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
+      <div class="img-slot" data-label="EDM B"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">EDM B</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
+      <div class="img-slot" data-label="EDM C"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">EDM C</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
+      <div class="img-slot" data-label="EDM D"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">EDM D</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
+    </div>
+  </div>
+
+  <div class="works-category fade-in">
+    <div class="cat-label">03 — 網站 · 網頁類</div>
+    <div class="works-grid" id="grid-03">
+      <div class="img-slot" data-label="網頁設計 A"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">網頁設計 A</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
+      <div class="img-slot" data-label="網頁設計 B"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">網頁設計 B</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
+      <div class="img-slot" data-label="網頁設計 C"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">網頁設計 C</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
+      <div class="img-slot" data-label="網頁設計 D"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">網頁設計 D</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- SECTION 2 -->
+<section id="section-2">
+  <div class="section-label fade-in" style="margin-bottom:48px;">02 &nbsp; 角色：我期待發揮的價值與目標</div>
+  <div class="s2-layout">
+    <div class="s2-left fade-in">
+      <div class="big-quote">我不希望自己<br>只是一個<span>作圖機器人</span>。</div>
+      <p>在處理專案時，我會習慣帶入 UX 的觀點，去思考這張圖的受眾是誰？PM 到底想表達什麼？最終目標是什麼？</p>
+      <p>或許我的設計能力還不是最頂尖，但在分析與洞察上，我希望自己是一個能真正協助 PM 解決問題的角色。</p>
+    </div>
+
+    <div class="s2-right fade-in">
+      <div class="goal-item"><div class="goal-marker">→</div><div><h4>帶入 UX 思維</h4><p>每一張設計稿的背後，都是一個溝通問題。思考「受眾是誰、PM 要表達什麼、最終目標是什麼」，讓設計不只是美觀，而是有效。</p></div></div>
+      <div class="goal-item"><div class="goal-marker">→</div><div><h4>朝向網頁與深度協作發展</h4><p>我最感興趣的方向是「網頁」，以及需要與 PM 大量討論的專案類型。在達到「放心交給我」的目標之前，也會持續向各專業同仁請教。</p></div></div>
+      <div class="goal-item"><div class="goal-marker">→</div><div><h4>以時間換取信任</h4><p>或許現在還不敢說能 100% 放心，但相信經驗會讓我變強。每一個案子都是一次積累。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 -->
+<section id="section-3">
+  <div class="section-label fade-in" style="margin-bottom:48px;">03 &nbsp; 團隊：目前的觀察與建議</div>
+  <div class="s3-layout">
+    <div class="s3-left fade-in">
+      <h2>現況觀察與<br>跨部門協作</h2>
+      <div class="obs-item"><div class="obs-tag">觀察 01</div><h4>跨部門協作的落差</h4><p>內部團隊的氛圍與分工很 OK，學長姐給我的幫助很大。目前比較卡的地方在於「跨部門協作」，不排除是因為大家可能都是新人，對既定流程還不夠熟悉，導致溝通上有落差。目前都先請教隊內學長姐的作法來應對。</p></div>
+      <div class="obs-item"><div class="obs-tag">觀察 02</div><h4>設計品質不一致</h4><p>各部門私下產出的圖檔品質難以統一，不僅增加後續修改的溝通成本，也可能影響整體品牌形象的一致性。</p></div>
+    </div>
+    <div class="s3-right fade-in">
+      <div class="proposal-label">實驗性提案</div>
+      <h3>設計直接<br>跨部門介入把關</h3>
+      <p>與其讓各部門私下產出品質不一的圖檔，不如由設計端直接介入把關——無論是直接派駐或深度對接該部門。</p>
+      <div class="proposal-steps">
+        <div class="step"><div class="step-num">01</div><p>設計師直接對接各部門，第一手理解需求</p></div>
+        <div class="step"><div class="step-num">02</div><p>確保產出符合公司品牌形象，內容更專業</p></div>
+        <div class="step"><div class="step-num">03</div><p>減少後續來回修改的溝通成本</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="fade-in">
+  <div class="footer-sig">Satita<span>UI DESIGNER / 鼎新數智設計部</span></div>
+  <div class="footer-mid">「專業能力可以靠時間補足，<br>人與人的溝通才是最需要學習的課題。」</div>
+  <div class="footer-right">新進考核檢視報告<br>2026.02.26<br>鼎新數智</div>
+</footer>
+
+<script>
+/* ── FADE IN ── */
+const io = new IntersectionObserver(e => {
+  e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); });
+}, { threshold: 0.07 });
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+document.querySelectorAll('.cards-3col .card').forEach((c, i) => {
+  c.classList.add('fade-in');
+  c.style.transitionDelay = `${i * 0.1}s`;
+  io.observe(c);
+});
+
+function initSlot(slot) {
+  const fileInput = slot.querySelector('input[type="file"]');
+  const btnReplace = slot.querySelector('.btn-replace');
+  const btnZoom = slot.querySelector('.btn-zoom');
+
+  slot.addEventListener('click', e => {
+    if (e.target === slot || e.target.classList.contains('slot-empty') || e.target.classList.contains('plus') || e.target.classList.contains('slot-name')) {
+      if (!slot.classList.contains('has-image')) fileInput.click();
+    }
+  });
+  btnReplace.addEventListener('click', e => { e.stopPropagation(); fileInput.click(); });
+  btnZoom.addEventListener('click', e => {
+    e.stopPropagation();
+    const thumb = slot.querySelector('img.thumb');
+    if (!thumb) return;
+    document.getElementById('lb-img').src = thumb.src;
+    document.getElementById('lb-label').textContent = slot.dataset.label || '';
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+  fileInput.addEventListener('change', () => {
+    const file = fileInput.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      let thumb = slot.querySelector('img.thumb');
+      if (!thumb) { thumb = document.createElement('img'); thumb.className = 'thumb'; slot.insertBefore(thumb, slot.firstChild); }
+      thumb.src = ev.target.result;
+      thumb.alt = slot.dataset.label || '';
+      slot.classList.add('has-image');
+    };
+    reader.readAsDataURL(file);
+    fileInput.value = '';
+  });
+}
+
+/* ── INIT ALL EXISTING SLOTS ── */
+document.querySelectorAll('.img-slot').forEach(slot => initSlot(slot));
+
+/* ── LIGHTBOX ── */
+document.getElementById('lightbox').addEventListener('click', e => {
+  if (e.target.id === 'lb-img') return;
+  closeLightbox();
+});
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+</body>
+</html>
