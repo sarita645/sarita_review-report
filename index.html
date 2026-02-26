@@ -477,6 +477,40 @@ function closeLightbox() {
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+/* ── SAVE BAR: download updated HTML ── */
+function downloadHTML() {
+  // Serialize current DOM so all embedded base64 images are included
+  const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+  const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'review-report.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
 </script>
+
+<!-- FLOATING SAVE BAR -->
+<div id="save-bar" style="
+  position: fixed; bottom: 24px; right: 24px; z-index: 300;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 8px;
+">
+  <div style="
+    background: #111; color: rgba(255,255,255,0.55);
+    font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.1em;
+    padding: 6px 12px; max-width: 200px; line-height: 1.6; text-align: right;
+  ">放完圖後，點下載儲存<br>再上傳到 GitHub 覆蓋舊檔</div>
+  <button onclick="downloadHTML()" style="
+    background: #111; color: #fff; border: none; cursor: pointer;
+    font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 12px 20px;
+    display: flex; align-items: center; gap: 8px;
+    transition: background 0.2s;
+  " onmouseover="this.style.background='#333'" onmouseout="this.style.background='#111'">
+    ↓ &nbsp;下載更新版本
+  </button>
+</div>
+
 </body>
 </html>
