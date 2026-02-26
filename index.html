@@ -139,7 +139,6 @@
     position: absolute; inset: 0;
     width: 100%; height: 100%; object-fit: cover; display: block;
   }
-  .img-slot input[type="file"] { display: none; }
 
   /* ── LIGHTBOX ── */
   #lightbox {
@@ -339,30 +338,191 @@
   <div class="works-category fade-in">
     <div class="cat-label">01 — 廣告 · 活動類</div>
     <div class="works-grid" id="grid-01">
-      <div class="img-slot" data-label="廣告主視覺 A"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">廣告主視覺 A</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
-      <div class="img-slot" data-label="廣告主視覺 B"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">廣告主視覺 B</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
-      <div class="img-slot" data-label="廣告素材 A"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">廣告素材 A</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
-      <div class="img-slot" data-label="廣告素材 B"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">廣告素材 B</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
+      <!-- 共 19 個 slot，依序放入自己的圖片。修改 data-label 和 src -->
+      <!-- 以下範例採用廣告作品 1~19 命名 -->
+      <div class="img-slot has-image" data-label="廣告作品 1">
+        <img class="thumb" src="images/ads-1.jpg" alt="廣告作品 1">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="廣告作品 2">
+        <img class="thumb" src="images/ads-2.jpg" alt="廣告作品 2">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="廣告作品 3">
+        <img class="thumb" src="images/ads-3.jpg" alt="廣告作品 3">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="廣告作品 4">
+        <img class="thumb" src="images/ads-4.jpg" alt="廣告作品 4">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="廣告作品 5">
+        <img class="thumb" src="images/ads-5.jpg" alt="廣告作品 5">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="廣告作品 6">
+        <img class="thumb" src="images/ads-6.jpg" alt="廣告作品 6">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="廣告作品 7">
+        <img class="thumb" src="images/ads-7.jpg" alt="廣告作品 7">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="廣告作品 8">
+        <img class="thumb" src="images/ads-8.jpg" alt="廣告作品 8">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="廣告作品 9">
+        <img class="thumb" src="images/ads-9.jpg" alt="廣告作品 9">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="廣告作品 10">
+        <img class="thumb" src="images/ads-10.jpg" alt="廣告作品 10">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="廣告作品 11">
+        <img class="thumb" src="images/ads-11.jpg" alt="廣告作品 11">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="廣告作品 12">
+        <img class="thumb" src="images/ads-12.jpg" alt="廣告作品 12">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="廣告作品 13">
+        <img class="thumb" src="images/ads-13.jpg" alt="廣告作品 13">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="廣告作品 14">
+        <img class="thumb" src="images/ads-14.jpg" alt="廣告作品 14">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="廣告作品 15">
+        <img class="thumb" src="images/ads-15.jpg" alt="廣告作品 15">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="廣告作品 16">
+        <img class="thumb" src="images/ads-16.jpg" alt="廣告作品 16">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="廣告作品 17">
+        <img class="thumb" src="images/ads-17.jpg" alt="廣告作品 17">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="廣告作品 18">
+        <img class="thumb" src="images/ads-18.jpg" alt="廣告作品 18">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="廣告作品 19">
+        <img class="thumb" src="images/ads-19.jpg" alt="廣告作品 19">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="works-category fade-in">
     <div class="cat-label">02 — EDM · 電子報</div>
     <div class="works-grid" id="grid-02">
-      <div class="img-slot" data-label="EDM A"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">EDM A</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
-      <div class="img-slot" data-label="EDM B"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">EDM B</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
-      <div class="img-slot" data-label="EDM C"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">EDM C</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
-      <div class="img-slot" data-label="EDM D"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">EDM D</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
+      <!-- 將圖片自行放在下面，修改 src 為正確的路徑 -->
+      <div class="img-slot has-image" data-label="EDM A">
+        <img class="thumb" src="images/EDM/edm-A.jpg" alt="EDM A">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="EDM B">
+        <img class="thumb" src="images/EDM/edm-B.jpg" alt="EDM B">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="EDM C">
+        <img class="thumb" src="images/EDM/edm-C.jpg" alt="EDM C">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="EDM D">
+        <img class="thumb" src="images/EDM/edm-D.jpg" alt="EDM D">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+            <div class="img-slot has-image" data-label="EDM E">
+        <img class="thumb" src="images/EDM/edm-E.jpg" alt="EDM E">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="EDM F">
+        <img class="thumb" src="images/EDM/edm-F.jpg" alt="EDM F">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="works-category fade-in">
     <div class="cat-label">03 — 網站 · 網頁類</div>
     <div class="works-grid" id="grid-03">
-      <div class="img-slot" data-label="網頁設計 A"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">網頁設計 A</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
-      <div class="img-slot" data-label="網頁設計 B"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">網頁設計 B</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
-      <div class="img-slot" data-label="網頁設計 C"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">網頁設計 C</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
-      <div class="img-slot" data-label="網頁設計 D"><div class="slot-empty"><div class="plus">＋</div><div class="slot-name">網頁設計 D</div></div><div class="slot-hover"><button class="action-btn btn-replace">替換圖片</button><button class="action-btn btn-zoom">放大檢視</button></div><input type="file" accept="image/*"></div>
+      <!-- 將圖片自行放在下面，修改 src 為正確的路徑 -->
+      <div class="img-slot has-image" data-label="網頁設計 A">
+        <img class="thumb" src="images/web/web-A.jpg" alt="網頁設計 A">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="網頁設計 B">
+        <img class="thumb" src="images/web/web-B.jpg" alt="網頁設計 B">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+      <div class="img-slot has-image" data-label="網頁設計 C">
+        <img class="thumb" src="images/web/web-C.jpg" alt="網頁設計 C">
+        <div class="slot-hover">
+          <button class="action-btn btn-zoom">放大檢視</button>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -429,39 +589,19 @@ document.querySelectorAll('.cards-3col .card').forEach((c, i) => {
 });
 
 function initSlot(slot) {
-  const fileInput = slot.querySelector('input[type="file"]');
-  const btnReplace = slot.querySelector('.btn-replace');
+  // only zoom is needed; images are added manually via src attributes
   const btnZoom = slot.querySelector('.btn-zoom');
-
-  slot.addEventListener('click', e => {
-    if (e.target === slot || e.target.classList.contains('slot-empty') || e.target.classList.contains('plus') || e.target.classList.contains('slot-name')) {
-      if (!slot.classList.contains('has-image')) fileInput.click();
-    }
-  });
-  btnReplace.addEventListener('click', e => { e.stopPropagation(); fileInput.click(); });
-  btnZoom.addEventListener('click', e => {
-    e.stopPropagation();
-    const thumb = slot.querySelector('img.thumb');
-    if (!thumb) return;
-    document.getElementById('lb-img').src = thumb.src;
-    document.getElementById('lb-label').textContent = slot.dataset.label || '';
-    document.getElementById('lightbox').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  });
-  fileInput.addEventListener('change', () => {
-    const file = fileInput.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = ev => {
-      let thumb = slot.querySelector('img.thumb');
-      if (!thumb) { thumb = document.createElement('img'); thumb.className = 'thumb'; slot.insertBefore(thumb, slot.firstChild); }
-      thumb.src = ev.target.result;
-      thumb.alt = slot.dataset.label || '';
-      slot.classList.add('has-image');
-    };
-    reader.readAsDataURL(file);
-    fileInput.value = '';
-  });
+  if (btnZoom) {
+    btnZoom.addEventListener('click', e => {
+      e.stopPropagation();
+      const thumb = slot.querySelector('img.thumb');
+      if (!thumb) return;
+      document.getElementById('lb-img').src = thumb.src;
+      document.getElementById('lb-label').textContent = slot.dataset.label || '';
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  }
 }
 
 /* ── INIT ALL EXISTING SLOTS ── */
